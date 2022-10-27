@@ -1,0 +1,33 @@
+[
+    {
+      "id": "elixir",
+      "label": "elixir",
+      "value": 199,
+      "color": "hsl(286, 70%, 50%)"
+    },
+    {
+      "id": "go",
+      "label": "go",
+      "value": 459,
+      "color": "hsl(132, 70%, 50%)"
+    },
+    {
+      "id": "ruby",
+      "label": "ruby",
+      "value": 100,
+      "color": "hsl(138, 70%, 50%)"
+    },
+    {
+      "id": "stylus",
+      "label": "stylus",
+      "value": 250,
+      "color": "hsl(41, 70%, 50%)"
+    },
+    {
+      "id": "c",
+      "label": "c",
+      "value": 373,
+      "color": "hsl(316, 70%, 50%)"
+    }
+  ]
+  

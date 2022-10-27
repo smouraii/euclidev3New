@@ -1,0 +1,429 @@
+{
+    "fluxId": "AnalysisRequest",
+    "useTemplates": true,
+    "selectTemplates": true,
+    "defaultTemplateValue": null,
+    "templatemandatory": false,
+    "id": "Request01",
+    "name": "Request 01",
+    "masterdata": "Request",
+    "submitWithApproval": false,
+    "approvalOptions": {
+      "approvalstatus": "Initial",
+      "beforeapprovalstatus": "Draft",
+      "pendingapprovalstatus": "PendingAcceptance",
+      "approvalfunction": "Acceptance"
+    },
+    "steps": [
+      {
+        "id": "RequestInformation",
+        "name": "RequestInformation",
+        "title": "Request Information",
+        "sdcid": "Request",
+        "fields": [
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "requestdesc",
+            "columntitle": "Description",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "input",
+            "columnAddInstructionalText": true,
+            "columnInstructionalText": "instruction test",
+            "inputproperties": {
+              "defaultvalue": "Test default value"
+            }
+          },
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "requeststatus",
+            "columntitle": null,
+            "readonly": false,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "RefType",
+              "multiple": false,
+              "defaultvalue": "Draft",
+              "refsdcid": "RequestStatus",
+              "display": "defaultvalue"
+            }
+          },
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "por_addressid",
+            "columntitle": "Client Lims",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Address",
+              "display": "addressid",
+              "fieldfilter": [
+                {
+                  "filtervalue1": "Contact",
+                  "filteroperator": "equal",
+                  "columnid": "addresstype"
+                }
+              ]
+            }
+          },
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "por_addresstype",
+            "columntitle": "Address Type",
+            "readonly": true,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "auto",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "autoproperties": {
+              "defaultvalue": null,
+              "fieldId": "por_addresstype",
+              "type": "R",
+              "refsdcid": "AddressType",
+              "values": [
+                {
+                  "defaultvalue": "AccreditedOrganization",
+                  "refvaluedesc": "Accredited Organizations",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Address",
+                  "refvaluedesc": "Physical address",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Contact",
+                  "refvaluedesc": "Contact Information",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Device",
+                  "refvaluedesc": "Device Details",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Home",
+                  "refvaluedesc": "Home address",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Organization",
+                  "refvaluedesc": "Organization",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "RegulatoryAgency",
+                  "refvaluedesc": "Regulatory Agency",
+                  "refdisplayvalue": ""
+                },
+                {
+                  "defaultvalue": "Work",
+                  "refvaluedesc": "Work address",
+                  "refdisplayvalue": ""
+                }
+              ],
+              "fromSDC": "Address",
+              "dependsOnField": "por_addressid",
+              "criteriaColumns": [
+                {
+                  "displayValueColumnid": "addresstype",
+                  "equalColumnid": "addressid"
+                }
+              ]
+            }
+          },
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "createdt",
+            "columntitle": "Creation date",
+            "readonly": true,
+            "mandatory": false,
+            "hidden": true,
+            "columntype": "date",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "dateproperties": {
+              "defaultvalue": "now()"
+            }
+          },
+          {
+            "sdcid": "Request",
+            "sdccolumnid": "requesttext",
+            "columntitle": "Portal User Test",
+            "readonly": true,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "input",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "inputproperties": {
+              "defaultvalue": "portaluser()"
+            }
+          }
+        ],
+        "dataset": null,
+        "spec": false,
+        "masterdata": true,
+        "linkedto": null,
+        "detailstable": false,
+        "detailstableconfig": null,
+        "twocolumns": false,
+        "AddInstructionalText": true,
+        "InstructionalTextType": "info",
+        "InstructionalTextTitle": "Instructional title",
+        "InstructionalTextDescription": "Test Description Test Description Test Description Test Description Test Description",
+        "optionalstep": false,
+        "adddatasetinstructionaltext": false,
+        "datasetinstructionaltext": null,
+        "datasetcolumntitle": null,
+        "AddSpecInstructionalText": false,
+        "SpecInstructionalText": null,
+        "speccolumntitle": null
+      },
+      {
+        "id": "RequestItems",
+        "name": "RequestItems",
+        "title": "Request Items",
+        "sdcid": "LV_RequestItem",
+        "fields": [
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "requesttext",
+            "columntitle": "Description",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "input",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "inputproperties": {
+              "defaultvalue": null
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "productid",
+            "columntitle": "Product",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Product",
+              "display": "s_productid",
+              "fieldfilter": []
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "templatekeyid1",
+            "columntitle": "Sample Template",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Sample",
+              "display": "s_sampleid",
+              "fieldfilter": [
+                {
+                  "filtervalue1": "Y",
+                  "filteroperator": "equal",
+                  "columnid": "templateflag"
+                }
+              ]
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "itemcount",
+            "columntitle": "Sample Count",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "numeric",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "inputproperties": {
+              "defaultvalue": "1"
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "shippinglocationdepartmentid",
+            "columntitle": "Shipping Location",
+            "readonly": false,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Department",
+              "display": "departmentid",
+              "fieldfilter": []
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "contactaddressid",
+            "columntitle": "Contact",
+            "readonly": false,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Address",
+              "display": "addressid",
+              "fieldfilter": []
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "quantity",
+            "columntitle": null,
+            "readonly": false,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "numeric",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "inputproperties": {
+              "defaultvalue": null
+            }
+          },
+          {
+            "sdcid": "LV_RequestItem",
+            "sdccolumnid": "quantityunits",
+            "columntitle": null,
+            "readonly": false,
+            "mandatory": false,
+            "hidden": false,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "SDC",
+              "multiple": false,
+              "defaultvalue": null,
+              "refsdcid": "Units",
+              "display": "unitsdesc",
+              "fieldfilter": []
+            }
+          }
+        ],
+        "dataset": {
+          "sdcid": "WorkItem"
+        },
+        "spec": false,
+        "masterdata": false,
+        "linkedto": "Request",
+        "detailstable": false,
+        "detailstableconfig": null,
+        "twocolumns": false,
+        "AddInstructionalText": false,
+        "InstructionalTextType": null,
+        "InstructionalTextTitle": null,
+        "InstructionalTextDescription": null,
+        "optionalstep": false,
+        "adddatasetinstructionaltext": false,
+        "datasetinstructionaltext": null,
+        "datasetcolumntitle": null,
+        "AddSpecInstructionalText": false,
+        "SpecInstructionalText": null,
+        "speccolumntitle": null
+      },
+      {
+        "id": "SampleInformation",
+        "name": "SampleInformation",
+        "title": "Sample Information",
+        "sdcid": "Sample",
+        "fields": [
+          {
+            "sdcid": "Sample",
+            "sdccolumnid": "sampledesc",
+            "columntitle": "Description",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": false,
+            "columntype": "input",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "inputproperties": {
+              "defaultvalue": "test"
+            }
+          },
+          {
+            "sdcid": "Sample",
+            "sdccolumnid": "samplestatus",
+            "columntitle": "Status",
+            "readonly": false,
+            "mandatory": true,
+            "hidden": true,
+            "columntype": "select",
+            "columnAddInstructionalText": false,
+            "columnInstructionalText": null,
+            "selectproperties": {
+              "type": "RefType",
+              "multiple": false,
+              "defaultvalue": "Initial",
+              "refsdcid": "SampleStatus",
+              "display": "defaultvalue"
+            }
+          }
+        ],
+        "dataset": {
+          "sdcid": "ParamList"
+        },
+        "spec": false,
+        "masterdata": false,
+        "linkedto": "Request",
+        "detailstable": false,
+        "detailstableconfig": null,
+        "twocolumns": false,
+        "AddInstructionalText": true,
+        "InstructionalTextType": "success",
+        "InstructionalTextTitle": null,
+        "InstructionalTextDescription": "Test Description",
+        "optionalstep": false,
+        "adddatasetinstructionaltext": false,
+        "datasetinstructionaltext": null,
+        "datasetcolumntitle": null,
+        "AddSpecInstructionalText": false,
+        "SpecInstructionalText": null,
+        "speccolumntitle": null
+      }
+    ]
+  }
+  
